@@ -1,12 +1,12 @@
-function ngAppworks($window) {
-    if ($window.appworks) {
-        var $appworks = $window.appworks;
-        delete($window.appworks);
-        return $appworks;
-    }
-    return {
-
-    };
-}
+// define angular-appworks module
 angular.module('angular-appworks', []);
-angular.module('angular-appworks').factory('$appworks', ['$window', ngAppworks]);
+
+// wrapper around global appworks object
+angular
+    .module('angular-appworks')
+    .factory('$appworks', ['$window', appworksService]);
+
+// content server service
+angular
+    .module('angular-appworks')
+    .service('$contentServer', [contentServerService]);

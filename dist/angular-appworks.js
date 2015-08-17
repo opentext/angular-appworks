@@ -1,4 +1,17 @@
-function ngAppworks($window) {
+// define angular-appworks module
+angular.module('angular-appworks', []);
+
+// wrapper around global appworks object
+angular
+    .module('angular-appworks')
+    .factory('$appworks', ['$window', appworksService]);
+
+// content server service
+angular
+    .module('angular-appworks')
+    .service('$contentServer', [contentServerService]);
+
+function appworksService($window) {
     if ($window.appworks) {
         var $appworks = $window.appworks;
         delete($window.appworks);
@@ -8,14 +21,7 @@ function ngAppworks($window) {
 
     };
 }
-angular.module('angular-appworks', []);
-angular.module('angular-appworks').factory('$appworks', ['$window', ngAppworks]);
-
-angular
-    .module('angular-appworks')
-    .service('$contentServer', contentServerService);
-
-function contentServerService($appworks, $timeout) {
+function contentServerService() {
 
     function getRootItems(id, callback) {
         // return all items with parent => id

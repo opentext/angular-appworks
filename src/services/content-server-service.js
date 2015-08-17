@@ -1,8 +1,4 @@
-angular
-    .module('angular-appworks')
-    .service('$contentServer', contentServerService);
-
-function contentServerService($appworks, $timeout) {
+function contentServerService() {
 
     function getRootItems(id, callback) {
         // return all items with parent => id
