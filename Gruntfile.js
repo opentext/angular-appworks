@@ -2,7 +2,7 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         jshint: {
-            files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+            files: ['Gruntfile.js', 'src/*.js', 'test/**/*.js'],
             options: {
                 globals: {
                     angular: true
@@ -16,11 +16,11 @@ module.exports = function (grunt) {
         concat: {
             options: {
                 // define a string to put between each file in the concatenated output
-                separator: ';'
+                separator: '\n'
             },
             dist: {
                 // the files to concatenate
-                src: ['src/**/*.js'],
+                src: ['src/*.js'],
                 // the location of the resulting JS file
                 dest: 'dist/angular-appworks.js'
             }
