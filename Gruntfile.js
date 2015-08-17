@@ -20,7 +20,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 // the files to concatenate
-                src: ['src/*.js'],
+                src: ['src/*.js', 'bower_components/appworks/dist/appworks.js'],
                 // the location of the resulting JS file
                 dest: 'dist/angular-appworks.js'
             }

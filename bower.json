@@ -1,0 +1,19 @@
+{
+  "name": "angular-appworks",
+  "main": "dist/angular-appworks.js",
+  "version": "0.0.0",
+  "authors": [
+    "Jason Ibrahim <jibrahim@opentext.com>"
+  ],
+  "description": "angular wrapper for the opentext appworks js library.",
+  "keywords": [
+    "angular",
+    "appworks",
+    "opentext"
+  ],
+  "license": "C",
+  "homepage": "http://awg-docs.appworks.dev",
+  "dependencies": {
+    "appworks": "~0.0.0"
+  }
+}
