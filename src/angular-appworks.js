@@ -4,6 +4,9 @@ function ngAppworks($window) {
         delete($window.appworks);
         return $appworks;
     }
+    return {
+
+    };
 }
 angular.module('angular-appworks', []);
 angular.module('angular-appworks').factory('$appworks', ['$window', ngAppworks]);
