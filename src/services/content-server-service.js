@@ -1,9 +1,60 @@
-function contentServerService() {
+function contentServerService($appworks) {
+    var self = this;
 
-    function getRootItems(id, callback) {
-        // return all items with parent => id
-        var items = mock(id);
-        return callback(items);
+    self.items = {};
+    self.store = $appworks.cache;
+
+    function clear() {
+        self.items = {};
+        self.store.removeObj('$contentServer.items');
+    }
+
+    function addItem(item, callback, err) {
+        // TODO make $http call to add item
+        item.id = Math.ceil(Math.random() * 10000);
+
+        self.items[item.parent] = self.items[item.parent] || [];
+        self.items[item.parent].push(item);
+
+        save();
+        return callback(item);
+    }
+
+    function getRootItems(id, callback, refresh) {
+        var collection;
+        if (refresh) {
+            collection = mock(id);
+            // cache items for later retrieval
+            save(id, collection);
+        } else {
+            // check for items in cache, return deserialized collection from cache
+            // if collection with that parent key does not exist, recursively call this method with refresh enabled
+            collection = getRootItemsFromCache(id);
+            if (!collection) {
+                return getRootItems(id, callback, true);
+            }
+        }
+        // return all items with parent === id
+        return callback(collection);
+    }
+
+    function getRootItemsFromCache(id) {
+        var items = self.store.getObj('$contentServer.items');
+        if (items) {
+            self.items[id] = items[id];
+            return angular.copy(items[id]);
+        }
+    }
+
+    function save(id, collection) {
+        if (id !== undefined) {
+            self.items[id] = angular.copy(collection);
+        }
+        storeItemsInCache();
+    }
+
+    function storeItemsInCache() {
+        self.store.setObj('$contentServer.items', self.items);
     }
 
     function collectItemsByParent(items, parentId) {
@@ -26,7 +77,7 @@ function contentServerService() {
                 children: []
             },
             fakeItem2 = {
-                id: 1,
+                id: 2,
                 name: 'Fake Item 2',
                 description: 'Another mocked out item',
                 parent: 3,
@@ -73,6 +124,9 @@ function contentServerService() {
     }
 
     return {
-        rootItems: getRootItems
+        rootItems: getRootItems,
+        addItem: addItem,
+        save: save,
+        clear: clear
     };
 }

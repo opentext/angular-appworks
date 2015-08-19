@@ -9,4 +9,4 @@ angular
 // content server service
 angular
     .module('angular-appworks')
-    .service('$contentServer', [contentServerService]);
+    .service('$contentServer', ['$appworks', contentServerService]);
