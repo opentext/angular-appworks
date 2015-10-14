@@ -11,12 +11,6 @@
     "appworks",
     "opentext"
   ],
-  "license": "C",
-  "homepage": "http://awg-docs.appworks.dev",
-  "devDependencies": {
-    "angular": "~1.4.4",
-    "angular-mocks": "~1.4.4",
-    "angular-sanitize": "~1.4.4",
-    "appworks": "appworks-js#*"
-  }
+  "license": "OpenText Inc",
+  "homepage": "https://github.com/opentext/angular-appworks"
 }
