@@ -16,6 +16,7 @@
   "dependencies": {
     "angular": "~1.4.4",
     "angular-mocks": "~1.4.4",
-    "angular-sanitize": "~1.4.4"
+    "angular-sanitize": "~1.4.4",
+    "appworks": "appworks-js#*"
   }
 }
