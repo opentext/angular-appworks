@@ -1,7 +1,7 @@
 {
   "name": "angular-appworks",
   "main": "dist/angular-appworks.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "authors": [
     "Jason Ibrahim <jibrahim@opentext.com>"
   ],
@@ -13,7 +13,7 @@
   ],
   "license": "C",
   "homepage": "http://awg-docs.appworks.dev",
-  "dependencies": {
+  "devDependencies": {
     "angular": "~1.4.4",
     "angular-mocks": "~1.4.4",
     "angular-sanitize": "~1.4.4",

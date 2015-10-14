@@ -1,6 +1,7 @@
 node_modules
 .tmp
 bower_components
+lib
 .settings
 .metadata
 *.war
