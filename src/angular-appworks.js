@@ -1,7 +1,7 @@
-// define angular-appworks module
-angular.module('angular-appworks', []);
+(function (angular, window, document, undefined) {
+    'use strict';
 
-// wrapper around global appworks object
-angular
-    .module('angular-appworks')
-    .factory('$appworks', ['$window', appworksService]);
+    // define angular-appworks module
+    angular.module('angular-appworks', []);
+
+})(window.angular, window, document);

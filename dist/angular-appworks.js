@@ -1,21 +1,73 @@
-// define angular-appworks module
-angular.module('angular-appworks', []);
+(function (angular, window, document, undefined) {
+    'use strict';
 
-// wrapper around global appworks object
-angular
-    .module('angular-appworks')
-    .factory('$appworks', ['$window', appworksService]);
+    // define angular-appworks module
+    angular.module('angular-appworks', []);
 
-function appworksService($window) {
-    if ($window.appworks) {
-        var $appworks = $window.appworks;
-        delete($window.appworks);
-        return $appworks;
+})(window.angular, window, document);
+(function (angular, window, document, undefined) {
+    'use strict';
+
+    angular
+        .module('angular-appworks')
+        .factory('$auth', authService);
+
+    function authService($appworks, $q) {
+
+        var authObject = {},
+            authPromise;
+
+        function getAuth() {
+            return authObject;
+        }
+
+        function getCSToken() {
+            return authObject.cstoken;
+        }
+
+        function getGatewayUrl() {
+            return window.gatewayUrl;
+        }
+
+        function onReauth(data) {
+            authObject = data.data.authResponse;
+            authPromise.resolve(data.data);
+            console.info('Authentication succeeded', data.data);
+            document.removeEventListener('appworksjs.auth', onReauth);
+        }
+
+        function reauth() {
+            authPromise = $q.defer();
+            document.addEventListener('appworksjs.auth', onReauth);
+            console.info('Attempting re-authentication...');
+            $appworks.auth.authenticate();
+            return authPromise.promise;
+        }
+
+        return {
+            getCSToken: getCSToken,
+            reauth: reauth,
+            gatewayUrl: getGatewayUrl,
+            getAuth: getAuth
+        };
     }
-    return {
 
-    };
-}
+})(window.angular, window, document);
+(function (angular, window, document, undefined) {
+
+    // wrapper around global appworks object
+    angular
+        .module('angular-appworks')
+        .service('$appworks', ['$window', bindGlobalAppworksObject]);
+
+    function bindGlobalAppworksObject($window) {
+        if ($window.appworks) {
+            return $window.appworks;
+        }
+        return {};
+    }
+
+})(window.angular, window, document);
 function AppWorksAuth() {
     'use strict';
 
