@@ -15,7 +15,11 @@
         }
 
         function getCSToken() {
-            return authObject.cstoken;
+            return authObject.otcsticket;
+        }
+
+        function getOTCSTicket() {
+            return authObject.otcsticket;
         }
 
         function getGatewayUrl() {
@@ -39,6 +43,7 @@
 
         return {
             getCSToken: getCSToken,
+            getOTCSTicket: getOTCSTicket,
             reauth: reauth,
             gatewayUrl: getGatewayUrl,
             getAuth: getAuth
