@@ -40,7 +40,7 @@
   "author": "jibrahim@opentext.com",
   "license": "See README.md",
   "bugs": {
-    "url": "https://jira.opentext.com/browse/OTAG/?selectedTab=com.atlassian.jira.jira-projects-plugin:summary-panel"
+    "url": "https://github.com/opentext/angular-appworks/issues"
   },
-  "homepage": "http://awg-docs.appworks.dev"
+  "homepage": "https://github.com/opentext/angular-appworks"
 }
