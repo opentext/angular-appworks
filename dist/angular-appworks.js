@@ -118,7 +118,7 @@ function AppWorksAuth() {
         getAuth: getAuthObject,
         authenticate: authenticate
     };
-}
+};
 // define the AMD module
 function AppWorksCore() {
     'use strict';
@@ -434,7 +434,7 @@ function AppWorksCore() {
     };
 
     return aw;
-}
+};
 function AppWorksCache(aw) {
     'use strict';
 
@@ -654,7 +654,7 @@ function AppWorksCache(aw) {
     };
 
     return awCache;
-}
+};
 // define the AMD module
 function AppWorksComms(aw) {
     'use strict';
@@ -805,7 +805,7 @@ function AppWorksComms(aw) {
     };
 
     return awComms;
-}
+};
 /**
  * General light-weight JSON data storage solution. This client creates user defined "dataTypes"
  * within an apps dedicated storage area on the device. A more persistent version of HTML5 local
@@ -1023,7 +1023,7 @@ function AppWorksStorage(aw) {
                     uri = encodeURI(downloadUrl),
                     fileUrl = 'cdvfile://localhost/persistent/' + filename;
 
-                return ft.download(uri, fileUrl, onSuccess, onError, options);
+                return ft.download(uri, fileUrl, onSuccess, onError, false, options);
             }
 
         },
@@ -1092,7 +1092,7 @@ function AppWorksStorage(aw) {
     };
 
     return awStorage;
-}
+};
 function AppWorksOffline(aw) {
     'use strict';
 
@@ -1278,7 +1278,7 @@ function AppWorksOffline(aw) {
     };
 
     return awOffline;
-}
+};
 function AppWorksNotifications(aw, awAuth) {
     'use strict';
 
@@ -1342,7 +1342,7 @@ function AppWorksNotifications(aw, awAuth) {
     };
 
     return awNotifications;
-}
+};
 (function (global) {
     'use strict';
 
