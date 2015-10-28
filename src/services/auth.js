@@ -3,7 +3,7 @@
 
     angular
         .module('angular-appworks')
-        .factory('$auth', authService);
+        .factory('$auth', ['$appworks', '$q', authService]);
 
     function authService($appworks, $q) {
 
