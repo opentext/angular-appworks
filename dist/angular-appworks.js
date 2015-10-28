@@ -1013,15 +1013,25 @@ function AppWorksStorage(aw) {
          * @param onSuccess - a success handler to run when the execution completes successfully
          * @param onError - an error handler to run when the execution encounters an error
          * @param options - an options object to set headers and params on the request
+         * @param useSharedDocumentUrl - boolean flag, if set to true will store the file in a shared container that can be accessed by other apps
          */
-        storeFile: function (filename, downloadUrl, onSuccess, onError, options) {
+        storeFile: function (filename, downloadUrl, onSuccess, onError, options, useSharedDocumentUrl) {
 
             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fileTransfer, errorHandler);
 
             function fileTransfer() {
                 var ft = new FileTransfer(),
                     uri = encodeURI(downloadUrl),
-                    fileUrl = 'cdvfile://localhost/persistent/' + filename;
+                    directory = cordova.file.documentsDirectory,
+                    fileUrl;
+
+                if (useSharedDocumentUrl && window.appworks && window.appworks.auth) {
+                    if (window.appworks.auth.getAuth().sharedDocumentUrl) {
+                        directory = window.appworks.auth.getAuth().sharedDocumentUrl + '/';
+                    }
+                }
+
+                fileUrl = directory + filename;
 
                 return ft.download(uri, fileUrl, onSuccess, onError, false, options);
             }
@@ -1042,6 +1052,7 @@ function AppWorksStorage(aw) {
          * @param onSuccess - a success handler to run when the execution completes successfully
          * @param onError - an error handler to run when the execution encounters an error
          * @param options - an options object to set headers and params on the request
+         * @param useSharedDocumentUrl - boolean flag, if set to true will store the file in a shared container that can be accessed by other apps
          */
         uploadFile: function (filename, uploadUrl, onSuccess, onError, options, useSharedDocumentUrl) {
 
@@ -1055,7 +1066,7 @@ function AppWorksStorage(aw) {
 
                 if (useSharedDocumentUrl && window.appworks && window.appworks.auth) {
                     if (window.appworks.auth.getAuth().sharedDocumentUrl) {
-                        directory = window.appworks.auth.getAuth().sharedDocumentUrl;
+                        directory = window.appworks.auth.getAuth().sharedDocumentUrl + '/';
                     }
                 }
 
