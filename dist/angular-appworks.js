@@ -54,6 +54,7 @@
         }
 
         function reauth() {
+            $timeout.cancel(authTimeout);
             authPromise = $q.defer();
             document.addEventListener('appworksjs.auth', onReauth);
             console.info('Attempting re-authentication...');
