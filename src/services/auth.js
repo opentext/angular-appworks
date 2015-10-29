@@ -3,12 +3,13 @@
 
     angular
         .module('angular-appworks')
-        .factory('$auth', ['$appworks', '$q', authService]);
+        .factory('$auth', ['$appworks', '$q', '$timeout', authService]);
 
-    function authService($appworks, $q) {
+    function authService($appworks, $q, $timeout) {
 
         var authObject = {},
-            authPromise;
+            authPromise,
+            authTimeout;
 
         function getAuth() {
             return authObject;
@@ -35,6 +36,14 @@
             authPromise.resolve(data.data);
             console.info('Authentication succeeded', data.data);
             document.removeEventListener('appworksjs.auth', onReauth);
+            $timeout.cancel(authTimeout);
+        }
+
+        function reauthTimeout() {
+            var msg = 'Authentication timed out after 10 seconds';
+            console.error(msg);
+            authPromise.reject(msg);
+            document.removeEventListener('appworksjs.auth', onReauth);
         }
 
         function reauth() {
@@ -42,6 +51,7 @@
             document.addEventListener('appworksjs.auth', onReauth);
             console.info('Attempting re-authentication...');
             $appworks.auth.authenticate();
+            authTimeout = $timeout(reauthTimeout, 10000);
             return authPromise.promise;
         }
 
