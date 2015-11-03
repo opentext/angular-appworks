@@ -1,7 +1,7 @@
 {
   "name": "angular-appworks",
   "main": "dist/angular-appworks.js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "authors": [
     "Jason Ibrahim <jibrahim@opentext.com>"
   ],
@@ -17,7 +17,7 @@
     "angular": "~1.4.4",
     "angular-mocks": "~1.4.4",
     "angular-sanitize": "~1.4.4",
-    "appworks": "appworks-js#deferred"
+    "appworks": "appworks-js#master"
   }
 
 }
