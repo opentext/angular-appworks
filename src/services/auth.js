@@ -15,16 +15,15 @@
             return authObject;
         }
 
-        function getCSToken() {
-            return authObject.cstoken;
-        }
-
         function getOTDSTicket() {
             return authObject.otdsticket;
         }
 
         function getOTCSTicket() {
-            return authObject.otcsticket;
+            if (authObject.addtl && authObject.addtl.contentServerConnector) {
+                return authObject.addtl.contentServerConnector.otcsticket;
+            }
+            return '';
         }
 
         function getGatewayUrl() {
@@ -57,7 +56,6 @@
         }
 
         return {
-            getCSToken: getCSToken,
             getOTDSTicket: getOTDSTicket,
             getOTCSTicket: getOTCSTicket,
             reauth: reauth,
