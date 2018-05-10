@@ -29,7 +29,7 @@ import {  NgAppworks  } from 'ng-appworks';
 @Component({...})
 export class YourComponent {
   constructor(protected appworks: NgAppworks) {
-    this.auth = new this.appworks.AWAuth(...)
+    this.auth = new appworks.AWAuth(...)
   }
 
 }
