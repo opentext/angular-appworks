@@ -44,3 +44,10 @@ Run `ng build ng-appworks`
 
 ## Running unit tests
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+----
+
+For community support, please refer to [https://developer.opentext.com](https://developer.opentext.com).
+
+Copyright © 2015 Open Text SA or Open Text ULC (in Canada). All rights reserved.
+Licensed under the Apache License, Version 2.0

@@ -9,6 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "license": "See README.md",
   "private": true,
   "dependencies": {
     "@angular/common": "^6.0.0",
