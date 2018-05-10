@@ -35,7 +35,7 @@ import {
   AWStorage,
   AWVibration,
   AWWebView
-} from './appworks-js/index';
+} from 'appworks-js';
 
 @Component({
   selector: 'ng-appworks',
