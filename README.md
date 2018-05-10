@@ -1,27 +1,46 @@
-# AngularAppworks
+# Ng-Appworks
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+This Angular Library for Appworks needs to be built with Angular CLI version 6.0.0.
 
-## Development server
+## Get Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```bash
+npm install ng-appworks --save
+```
+```typescript
+import {NgAppworksModule, NgAppworks} from 'ng-appworks';
 
-## Code scaffolding
+@NgModule({
+  imports: [
+    BrowserModule,
+    NgAppworksModule,
+    ...
+  ],
+  providers: [NgAppworks]
+  ...
+})
+export class AppModule {}
+```
+Then you just have to inject to where you need it:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```typescript
+import {  NgAppworks  } from 'ng-appworks';
+
+@Component({...})
+export class YourComponent {
+  constructor(protected appworks: NgAppworks) {
+    this.auth = new appworks.AWAuth(...)
+  }
+
+}
+```
+## Appworks-js Documentation
+For further details about Appwoks-js framework, visit [OpenText Appworks-js](https://github.com/opentext/appworks-js)
 
 ## Build
+Run `npm install` for both root projects and appworks-js inside `projects\ng-appworks\src\lib\appworks-js`
+Run `ng build ng-appworks`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
-
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
