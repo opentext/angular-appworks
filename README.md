@@ -38,7 +38,7 @@ export class YourComponent {
 For further details about Appwoks-js framework, visit [OpenText Appworks-js](https://github.com/opentext/appworks-js)
 
 ## Build
-Run `npm install` for both root projects and appworks-js inside `projects\ng-appworks\src\lib\appworks-js`
+Run `npm install` for both root projects and ng-appworks inside `projects`
 Run `ng build ng-appworks`
 
 
@@ -49,5 +49,5 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 For community support, please refer to [https://developer.opentext.com](https://developer.opentext.com).
 
-Copyright © 2015 Open Text SA or Open Text ULC (in Canada). All rights reserved.
+Copyright © 2018 Open Text SA or Open Text ULC (in Canada). All rights reserved.
 Licensed under the Apache License, Version 2.0
