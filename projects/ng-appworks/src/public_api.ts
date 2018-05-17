@@ -1,8 +1,10 @@
+
 /*
  * Public API Surface of ng-appworks
  */
 
+export * from './lib/Auth.service';
+export * from './lib/Accelerometer.service';
 
-export * from './lib/ng-appworks.module';
-export * from './lib/ng-appworks.component';
-export * from './lib/ng-appworks.services';
+export * from './lib/ng-appwroks.module';
+
