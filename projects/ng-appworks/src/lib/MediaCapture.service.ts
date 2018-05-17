@@ -5,26 +5,27 @@ import { Observable, Observer } from 'rxjs';
 @Injectable()
 export class AWMediaCaptureService {
     AWMediaCapture: AWMediaCapture
-    onChange: Observable<any>
     constructor() {
-        this.onChange = new Observable(ob => {
-            this.AWMediaCapture = new AWMediaCapture(data => ob.next(data), err => ob.error(err));
-        });
-    }
-
-    init(ob: Observer<any>) {
-        this.onChange.subscribe(ob);
     }
 
     captureAudio(options?: any) {
-        this.AWMediaCapture.captureAudio(options);
+        return new Observable(ob => {
+            this.AWMediaCapture = new AWMediaCapture(data => ob.next(data), err => ob.error(err))
+            this.AWMediaCapture.captureAudio(options);
+        });
     }
 
     captureImage(options?: any) {
-        this.AWMediaCapture.captureImage(options);
+        return new Observable(ob => {
+            this.AWMediaCapture = new AWMediaCapture(data => ob.next(data), err => ob.error(err))
+            this.AWMediaCapture.captureImage(options);
+        });
     }
 
     captureVideo(options?: any) {
-        this.AWMediaCapture.captureVideo(options);
+        return new Observable(ob => {
+            this.AWMediaCapture = new AWMediaCapture(data => ob.next(data), err => ob.error(err))
+            this.AWMediaCapture.captureVideo(options);
+        });
     }
 }

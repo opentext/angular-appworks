@@ -4,7 +4,7 @@ import { Observable, Observer } from 'rxjs';
 import { wrapListenerWithDirtyAndDefault } from "@angular/core/src/render3/instructions";
 
 @Injectable()
-export class AAWVibrationService {
+export class AWVibrationService {
     AWVibration: AWVibration
     onChange: Observable<any>
     constructor() {

@@ -6,12 +6,10 @@ import { ContactProperties } from "appworks-js/src/plugins/contacts";
 @Injectable()
 export class AWContactsService {
     AWDevice: AWDevice
-    onChange: Observable<any>
     constructor() {
         this.AWDevice = new AWDevice();
     }
-
-    init() {
+    getDeviceInfo() {
         return this.AWDevice;
     }
 }

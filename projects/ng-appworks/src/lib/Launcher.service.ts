@@ -12,8 +12,8 @@ export class AWLauncherService {
     init() {
     }
 
-    getLaunchURL(ob: Observer<any>) {
-        let obs = new Observable(ob => {
+    getLaunchURL() {
+        return new Observable(ob => {
             this.AWLauncher.getLaunchURL(data => ob.next(data), err => ob.error(err));
         });
     }

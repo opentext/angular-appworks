@@ -4,23 +4,23 @@ import { Observable, Observer } from 'rxjs';
 
 @Injectable()
 export class AWAccelerometerService {
-    private AWAccelerometer: AWAccelerometer
-    private onChange: Observable<any>
+    AWAccelerometer: AWAccelerometer
     constructor() {
-        this.onChange = new Observable((ob: Observer<any>) => {
-            this.AWAccelerometer = new AWAccelerometer((data) => ob.next(data), (err) => ob.error(err));
+    }
+
+    attach() {
+        return new Observable(ob => {
+            this.AWAccelerometer = new AWAccelerometer(data => ob.next(data), err => ob.error(err));
         });
     }
 
-    init(obs: Observer<any>) {
-        this.onChange.subscribe(obs);
+    getCurrentAcceleration(): Observable<any> {
+        return new Observable(ob => {
+            this.AWAccelerometer = new AWAccelerometer(data => ob.next(data), err => ob.error(err));
+        });
     }
 
-    getCurrentAcceleration() {
-        return this.AWAccelerometer.getCurrentAcceleration();
-    }
-
-    watchAcceleration(options?: any): number {
+    watchAcceleration(options?: any): Observable<any> {
         return this.AWAccelerometer.watchAcceleration(options);
     }
 

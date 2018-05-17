@@ -7,26 +7,28 @@ import { SaveDialogOptions, FileDialogOptions } from "appworks-js/src/plugins/fi
 @Injectable()
 export class AWFinderService {
     AWFinder: AWFinder
-    onChange: Observable<any>
-    constructor() {
-        this.onChange = new Observable((ob) => {
-            this.AWFinder = new AWFinder(data => ob.next(data), err => ob.error(err));
-        });
-    }
 
-    init(ob: Observer<any>) {
-        this.onChange.subscribe(ob);
+    constructor() {
     }
 
     open(path: string, filename: string) {
-        return this.AWFinder.open(path, filename);
+        return new Observable(ob => {
+            this.AWFinder = new AWFinder(data => ob.next(data), err => ob.error(err));
+            this.AWFinder.open(path, filename);
+        });
     }
 
     share(filename: string) {
-        return this.AWFinder.share(filename);
+        return new Observable(ob => {
+            this.AWFinder = new AWFinder(data => ob.next(data), err => ob.error(err));
+            this.AWFinder.share(filename);
+        });
     }
 
     list(filename: string) {
-        return this.AWFinder.list(filename);
+        return new Observable(ob => {
+            this.AWFinder = new AWFinder(data => ob.next(data), err => ob.error(err));
+            this.AWFinder.list(filename);
+        });
     }
 }

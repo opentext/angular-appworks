@@ -19,18 +19,16 @@ export class AWWebViewService {
         this.AWWebView.open(url, target, options);
     }
 
-    addEventListener(type: string, ob: Observer<any>) {
-        let obs = new Observable(ob => {
+    addEventListener(type: string) {
+        return new Observable(ob => {
             this.AWWebView.addEventListener(type, data => ob.next(data));
         });
-        obs.subscribe(ob);
     }
 
-    removeEventListener(type: string, ob: Observer<any>) {
-        let obs = new Observable(ob => {
+    removeEventListener(type: string) {
+        return new Observable(ob => {
             this.AWWebView.removeEventListener(type, data => ob.next(data));
         });
-        obs.subscribe(ob);
     }
 
     show() {
@@ -41,17 +39,15 @@ export class AWWebViewService {
         this.AWWebView.close();
     }
 
-    executeScript(script: string, ob: Observer<any>) {
-        let obs = new Observable(ob => {
+    executeScript(script: string) {
+        return new Observable(ob => {
             this.AWWebView.executeScript(script, data => ob.next(data));
         });
-        obs.subscribe(ob);
     }
 
-    insertCSS(css: string, ob: Observer<any>) {
-        let obs = new Observable(ob => {
+    insertCSS(css: string) {
+        return new Observable(ob => {
             this.AWWebView.insertCSS(css, data => ob.next(data));
         });
-        obs.subscribe(ob);
     }
 }

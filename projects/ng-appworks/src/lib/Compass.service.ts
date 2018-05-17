@@ -5,22 +5,24 @@ import { Observable, Observer } from 'rxjs';
 @Injectable()
 export class AWCompassService {
     AWCompass: AWCompass
-    onChange: Observable<any>
     constructor() {
-        this.onChange = new Observable((ob) => {
+        this.AWCompass = new AWCompass(() => {}, () => {});
+    }
+
+    attach() {
+        return new Observable(ob => {
             this.AWCompass = new AWCompass(data => ob.next(data), err => ob.error(err));
         });
     }
 
-    init(ob: Observer<any>) {
-        this.onChange.subscribe(ob);
-    }
-
     getCurrentHeading() {
-        this.AWCompass.getCurrentHeading();
+        return new Observable(ob => {
+            this.AWCompass = new AWCompass(data => ob.next(data), err => ob.error(err));
+            this.AWCompass.getCurrentHeading();
+        });
     }
 
-    watchAcceleration(options?: any) {
+    watchHeading(options?: any) {
         return this.AWCompass.watchHeading(options);
     }
 

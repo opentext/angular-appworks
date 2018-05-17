@@ -6,6 +6,7 @@ import { Observable, Observer } from 'rxjs';
 export class AWOfflineManagerService {
     AWOfflineManager: AWOfflineManager
     constructor() {
+        this.AWOfflineManager = new AWOfflineManager();
     }
 
     init(options) {

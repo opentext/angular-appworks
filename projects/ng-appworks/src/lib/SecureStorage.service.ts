@@ -6,30 +6,35 @@ import { wrapListenerWithDirtyAndDefault } from "@angular/core/src/render3/instr
 @Injectable()
 export class AWSecureStorageService {
     AWSecureStorage: AWSecureStorage
-    onChange: Observable<any>
     constructor() {
-        this.onChange = new Observable(ob => {
-            this.AWSecureStorage = new AWSecureStorage(data => ob.next(data), err => ob.error(err));
-        });
-    }
-
-    init(ob: Observer<any>) {
-        this.onChange.subscribe(ob);
+    
     }
 
     store(url: string, filename: string, options?: any) {
-        this.AWSecureStorage.store(url, filename, options);
+        return new Observable(ob => {
+            this.AWSecureStorage = new AWSecureStorage(data => ob.next(data), err => ob.error(err));
+            this.AWSecureStorage.store(url, filename, options);
+        });
     }
 
     retrieve(filename: string, options?: any) {
-        this.AWSecureStorage.retrieve(filename, options);
+        return new Observable(ob => {
+            this.AWSecureStorage = new AWSecureStorage(data => ob.next(data), err => ob.error(err));
+            this.AWSecureStorage.retrieve(filename, options);
+        });
     }
 
     remove(target: string) {
-        this.AWSecureStorage.remove(target);
+        return new Observable(ob => {
+            this.AWSecureStorage = new AWSecureStorage(data => ob.next(data), err => ob.error(err));
+            this.AWSecureStorage.remove(target);
+        });
     }
 
     fileExistsAtPath(target: string) {
-        this.AWSecureStorage.fileExistsAtPath(target);
+        return new Observable(ob => {
+            this.AWSecureStorage = new AWSecureStorage(data => ob.next(data), err => ob.error(err));
+            this.AWSecureStorage.fileExistsAtPath(target);
+        });
     }
 }

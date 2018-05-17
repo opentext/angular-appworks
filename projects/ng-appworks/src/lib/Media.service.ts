@@ -5,15 +5,13 @@ import { Observable, Observer } from 'rxjs';
 @Injectable()
 export class AWMediaService {
     AWMedia: AWMedia
-    onChange: Observable<any>
     constructor() {
     }
 
-    init(filename: string, ob: Observer<any>) {
-        this.onChange = new Observable(ob => {
+    attach(filename: string) {
+        return new Observable(ob => {
             this.AWMedia = new AWMedia(filename, data => ob.next(data), err => ob.error(err));
         });
-        this.onChange.subscribe(ob);
     }
 
     play() {
@@ -21,11 +19,11 @@ export class AWMediaService {
     }
 
     pause() {
-        this.AWMedia.play();
+        this.AWMedia.pause();
     }
 
     release() {
-        this.AWMedia.play();
+        this.AWMedia.release();
     }
 
     seekTo(value: number) {
@@ -52,10 +50,9 @@ export class AWMediaService {
         this.AWMedia.getDuration();
     }
 
-    getCurrentPosition(ob: Observer<any>) {
-        let obs = new Observable(ob => {
+    getCurrentPosition() {
+        return new Observable(ob => {
             this.AWMedia.getCurrentPosition(data => ob.next(data), err => ob.error(err));
         });
-        obs.subscribe(ob);
     }
 }

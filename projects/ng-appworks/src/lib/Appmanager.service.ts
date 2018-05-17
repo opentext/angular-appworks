@@ -5,19 +5,14 @@ import { Observable, Observer } from 'rxjs';
 @Injectable()
 export class AWAppManagerService {
     AWAppManager:AWAppManager
-    onChange: Observable<any>
 
     constructor() {
-        this.onChange = new Observable((obs) => {
-            this.AWAppManager = new AWAppManager((data) => obs.next(data), (err) => obs.error(err));
-        });
-    }
-
-    init(ob: Observer<any>) {
-        this.onChange.subscribe(ob);
     }
 
     colseActiveApp() {
-        this.AWAppManager.closeActiveApp();
+        return new Observable(ob => {
+            this.AWAppManager = new AWAppManager(data => ob.next(data), err => ob.error(err));
+            this.AWAppManager.closeActiveApp();
+        });
     }
 }

@@ -7,27 +7,27 @@ import { SaveDialogOptions, FileDialogOptions } from "appworks-js/src/plugins/fi
 @Injectable()
 export class AWHeaderBarService {
     AWHeaderBar: AWHeaderBar
-    onChange: Observable<any>
-    constructor() {
-        this.onChange = new Observable((ob) => {
-            this.AWHeaderBar = new AWHeaderBar(data => ob.next(data), err => ob.error(err));
-        });
-    }
 
-    init(ob: Observer<any>) {
-        this.onChange.subscribe(ob);
+    constructor() {
+    
     }
 
     setHeader(config: any) {
-        this.AWHeaderBar.setHeader(config);
+        return new Observable(ob => {
+            this.AWHeaderBar = new AWHeaderBar(data => ob.next(data), err => ob.next(err));
+            this.AWHeaderBar.setHeader(config);
+        });
     }
 
     getHeader() {
-        return this.AWHeaderBar.getHeader();
+        return new Observable(ob => {
+            this.AWHeaderBar = new AWHeaderBar(data => ob.next(data), err => ob.next(err));
+            return this.AWHeaderBar.getHeader();
+        });
     }
 
-    setHeaderButtons(ob: Observer<any>, config: any) {
-        let obs = new Observable(ob => {
+    setHeaderButtons(config: any) {
+        return new Observable(ob => {
             this.AWHeaderBar.setHeaderButtons(data => ob.next(data), config);
         });
     }
