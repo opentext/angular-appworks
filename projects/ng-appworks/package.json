@@ -1,0 +1,22 @@
+{
+  "name": "ng-appworks",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "appworks-js": "^16.3.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3",
+    "jest-preset-angular": "^5.2.2"
+  },
+  "license": "LICENSE",
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupJest.ts"
+  }
+}
