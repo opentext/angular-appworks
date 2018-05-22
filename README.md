@@ -63,7 +63,7 @@ For Uses of Observerables
      next: data => { ... }
      error: err => { ... }
    };
-   let obs = AWXXX.XXX();
+   let obs = AWSomeService.someMethod();
    obs.subscribe(ob);
 ```
 * [API Usage and Examples](#api-usage-and-examples)
