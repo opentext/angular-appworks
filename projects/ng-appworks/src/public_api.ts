@@ -1,3 +1,5 @@
+import { AWNotificationManagerService } from './public_api';
+
 /*
  * Public API Surface of ng-appworks
  */
@@ -27,7 +29,6 @@ export { AWMobileFileSystemService } from './lib/MobileFileSystem.service';
 export { AWNotificationManagerService } from './lib/NotificationManager.service';
 export { AWMenuService } from './lib/Menu.service';
 export { AWOfflineManagerService } from './lib/OfflineManager.service';
-export { AWNotificationManager } from 'appworks-js';
 export { AWQRReaderService } from './lib/QRReader.service';
 export { AWScannerService } from './lib/Scanner.service';
 export { AWSecureStorageService } from './lib/SecureStorage.service';
