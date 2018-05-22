@@ -72,6 +72,7 @@ For Uses of Observerables
   - [AWAuthService](#awauthservice)
   - [AWCacheService](#awcacheservice)
   - [AWCalendarService](#awcalendarservice)
+  - [AWCameraService](#awcameraservice)
   - [AWCompassService](#awcompassservice)
   - [AWComponentService](#awcomponentservice)
   - [AWContactsService](#awcontactsservice)
@@ -94,8 +95,6 @@ For Uses of Observerables
   - [AWScannerService](#awscannerservice)
   - [AWVibrationService](#awvibrationservice)
   - [AWWebViewService](#awwebviewservice)
-  - [AWCameraService](#awcameraservice)
-  - [AWContactService](#awcontactservice)
   - [AWQRReaderService](#awqrreaderservice)
   - [AWSecureStorageService](#awsecurestorageservice)
   - [AWScannerService](#awscannerservice)
@@ -159,7 +158,7 @@ For Uses of Observerables
 ##### Methods:
 ###### init
 ```typescript
-  init(option?) // config AWCache with option
+  init(option?) // configure AWCache with option
 ```
 ###### setItem
 ```typescript
@@ -182,7 +181,7 @@ For Uses of Observerables
 ##### Methods:
 ###### init
 ```typescript
-  init(option?) // config AWCache with option
+  init(option?) // configure AWCache with option
 ```
 ###### getCalendarOptions
 ```typescript
@@ -704,8 +703,168 @@ For Uses of Observerables
 ```typescript
   upload(source: string, destination: string, fileParameterName: string, formData: any, headers: any, shared: boolean): Observable
 ```
-## Appworks-js Documentation
-For further details about Appwoks-js framework, visit [OpenText Appworks-js](https://github.com/opentext/appworks-js)
+#### AWNotificationManagerService
+##### Methods:
+###### enablePushNotifications
+```typescript
+  enablePushNotifications(includeSeqNo: boolean): Observable
+```
+###### getNotifications
+```typescript
+  getNotifications(includeSeqNo: boolean): Observable
+```
+###### disablePushNotifications
+```typescript
+  disablePushNotifications()
+```
+###### getOpeningNotification
+```typescript
+  getOpeningNotification(includeSeqNo: boolean): Observable
+```
+###### removeNotification
+```typescript
+  removeNotification(seqNo: any): Observable
+```
+###### openListener
+```typescript
+  openListener(includeSeqNo: boolean): Observable
+```
+#### AWOfflineManagerService
+##### Methods:
+###### init
+```typescript
+  init(options) //configure AWOfflineManager with option
+```
+###### defer
+```typescript
+  defer(eventName: string, args: any)
+```
+###### cancel
+```typescript
+  cancel(id: number)
+```
+###### networkStatus
+```typescript
+  networkStatus()
+```
+#### AWPageService
+##### Methods:
+###### setPageUrl
+```typescript
+  setPageUrl(url: string): Observable
+```
+###### openModalAppWebView
+```typescript
+  openModalAppWebView(url: string, title: string, closetitle: string): Observable
+```
+###### openModalExternalWebView
+```typescript
+  openModalExternalWebView(url: string, title: string, closetitle: string, options?: any): Observable
+```
+###### setActionButtonCallback
+```typescript
+  setActionButtonCallback(actionTitle: string): Observable
+```
+###### closeModalAppWebView
+```typescript
+  closeModalAppWebView(): Observable
+```
+###### video
+```typescript
+  video(url: string): Observable
+```
+#### AWQRReaderService
+##### Methods:
+###### scan
+```typescript
+  scan(): Observable
+```
+#### AWScannerService
+##### Methods:
+###### scanDocument
+```typescript
+  scanDocument(returnType: Number): Observable
+```
+#### AWSecureStorageService
+##### Methods:
+###### store
+```typescript
+  store(url: string, filename: string, options?: any): Observable
+```
+###### retrieve
+```typescript
+  retrieve(filename: string, options?: any): Observable
+```
+###### remove
+```typescript
+  remove(target: string): Observable
+```
+###### fileExistsAtPath
+```typescript
+  fileExistsAtPath(target: string): Observable
+```
+#### AWStorageService
+##### Methods:
+###### clear
+```typescript
+  clear()
+```
+###### getItem
+```typescript
+  getItem(key: string)
+```
+###### key
+```typescript
+  key(index: number)
+```
+###### removeItem
+```typescript
+  removeItem(target: string)
+```
+###### setItem
+```typescript
+  setItem(key: string, data: any)
+```
+#### AWVibrationService
+##### Methods:
+###### vibrate
+```typescript
+  vibrate(time: number)
+```
+#### AWWebViewService
+##### Methods:
+###### open
+```typescript
+  open(url: string, target?: string, options?: string)
+```
+###### addEventListener
+```typescript
+  addEventListener(type: string): Observable
+```
+###### removeEventListener
+```typescript
+  removeEventListener(type: string): Observable
+```
+###### show
+```typescript
+  show()
+```
+
+###### close
+```typescript
+  close()
+```
+###### executeScript
+```typescript
+  executeScript(script: string): Observable
+```
+
+###### close
+```typescript
+  insertCSS(script: string): Observable
+```
+## Appworks Documentation
+For further details about Appwoks framework, visit [OpenText Appworks-js](https://github.com/opentext/appworks-js)
 
 ## Build
 Run `npm install` for both root projects and ng-appworks inside `projects`
