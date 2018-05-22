@@ -1,5 +1,5 @@
-import {Injectable} from "@angular/core";
-import {AWGlobalization} from 'appworks-js';
+import { Injectable } from "@angular/core";
+import { AWGlobalization } from 'appworks-js';
 import { Observable, Observer } from 'rxjs';
 
 @Injectable()

@@ -1,5 +1,3 @@
-import { AWFileSystemService } from './lib/FileSystem.service';
-
 /*
  * Public API Surface of ng-appworks
  */

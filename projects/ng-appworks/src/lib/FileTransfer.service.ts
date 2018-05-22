@@ -31,9 +31,4 @@ export class AWFileTransferService {
     abort() {
         this.AWFileTransfer.abort();
     }
-
-
-
-
-
 }

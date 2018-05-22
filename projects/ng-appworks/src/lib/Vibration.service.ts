@@ -6,7 +6,6 @@ import { wrapListenerWithDirtyAndDefault } from "@angular/core/src/render3/instr
 @Injectable()
 export class AWVibrationService {
     AWVibration: AWVibration
-
     constructor() {
         this.AWVibration = new AWVibration();
     }

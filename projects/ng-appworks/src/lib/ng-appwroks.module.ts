@@ -10,6 +10,7 @@ import { AWCompassService } from './Compass.service';
 import { AWComponentService } from './Component.service';
 import { AWContactsService } from './Contact.service';
 import { AWFileChooserService } from './FileChooser.service';
+import { AWFileSystemService } from './FileSystem.service';
 import { AWFileTransferService } from './FileTransfer.service';
 import { AWGlobalizationService } from './Globalization.sevice';
 import { AWHeaderBarService } from './Headerbar.service';
@@ -23,7 +24,6 @@ import { AWMobileFileSystemService } from './MobileFileSystem.service';
 import { AWNotificationManagerService } from './NotificationManager.service';
 import { AWMenuService } from './Menu.service';
 import { AWOfflineManagerService } from './OfflineManager.service';
-import { AWNotificationManager, AWDevice, AWFileSystem } from 'appworks-js';
 import { AWQRReaderService } from './QRReader.service';
 import { AWScannerService } from './Scanner.service';
 import { AWSecureStorageService } from './SecureStorage.service';
@@ -31,7 +31,6 @@ import { AWStorageServiceService } from './Storage.service';
 import { AWWebViewService } from './WebView.service';
 import { AWVibrationService } from './Vibration.service';
 import { AWDeviceService } from './Device.service';
-import { AWFileSystemService } from '../public_api';
 
 
 @NgModule({})
