@@ -9,7 +9,7 @@ export class AWComponentService {
         this.AWComponent = new AWComponent(() => {}, () => {});
     }
 
-    open(ob: Observer<any>, args?: any[]) {
+    open(args?: any[]) {
         return new Observable(ob => {
             this.AWComponent.open(data => ob.next(data), err => ob.error(err), args);
         });

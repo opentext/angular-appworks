@@ -84,13 +84,13 @@ export class AWFileSystemService {
         });
     }
 
-    showDirSelector(opts: SaveDialogOptions, ob: Observer<any>) {
+    showDirSelector(opts: SaveDialogOptions) {
         return new Observable(ob => {
             this.AWFileSystem.showDirSelector(opts, data => ob.next(data), err => ob.error(err));
         });
     }
 
-    showFileSelector(opts: FileDialogOptions, ob: Observer<any>) {
+    showFileSelector(opts: FileDialogOptions) {
         return new Observable(ob => {
             this.AWFileSystem.showFileSelector(opts, data => ob.next(data), err => ob.error(err));
         });

@@ -9,7 +9,7 @@ export class AWAppManagerService {
     constructor() {
     }
 
-    colseActiveApp() {
+    closeActiveApp() {
         return new Observable(ob => {
             this.AWAppManager = new AWAppManager(data => ob.next(data), err => ob.error(err));
             this.AWAppManager.closeActiveApp();

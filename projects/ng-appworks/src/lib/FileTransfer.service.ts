@@ -22,7 +22,7 @@ export class AWFileTransferService {
         this.AWFileTransfer.upload(source, url, options, shared);
     }
 
-    progressHandler(ob: Observer<any>) {
+    progressHandler() {
         return new Observable(ob => {
             this.AWFileTransfer.progressHandler(data => ob.next(data));
         });

@@ -27,7 +27,7 @@ import { AWOfflineManagerService } from './OfflineManager.service';
 import { AWQRReaderService } from './QRReader.service';
 import { AWScannerService } from './Scanner.service';
 import { AWSecureStorageService } from './SecureStorage.service';
-import { AWStorageServiceService } from './Storage.service';
+import { AWStorageService } from './Storage.service';
 import { AWWebViewService } from './WebView.service';
 import { AWVibrationService } from './Vibration.service';
 import { AWDeviceService } from './Device.service';
@@ -67,7 +67,7 @@ export class NgAppworksModule {
                 AWQRReaderService,
                 AWScannerService,
                 AWSecureStorageService,
-                AWStorageServiceService,
+                AWStorageService,
                 AWWebViewService,
                 AWVibrationService
             ]

@@ -1,5 +1,3 @@
-import { AWNotificationManagerService } from './public_api';
-
 /*
  * Public API Surface of ng-appworks
  */
@@ -32,7 +30,7 @@ export { AWOfflineManagerService } from './lib/OfflineManager.service';
 export { AWQRReaderService } from './lib/QRReader.service';
 export { AWScannerService } from './lib/Scanner.service';
 export { AWSecureStorageService } from './lib/SecureStorage.service';
-export { AWStorageServiceService } from './lib/Storage.service';
+export { AWStorageService } from './lib/Storage.service';
 export { AWWebViewService } from './lib/WebView.service';
 export { AWVibrationService } from './lib/Vibration.service';
 export * from './lib/ng-appwroks.module';

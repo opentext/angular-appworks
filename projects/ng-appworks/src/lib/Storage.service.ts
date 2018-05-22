@@ -4,7 +4,7 @@ import { Observable, Observer } from 'rxjs';
 import { wrapListenerWithDirtyAndDefault } from "@angular/core/src/render3/instructions";
 
 @Injectable()
-export class AWStorageServiceService {
+export class AWStorageService {
     AWStorage: AWStorage
     
     constructor() {
