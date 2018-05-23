@@ -1,0 +1,5 @@
+class MockGlobalization {
+    getPreferredLanguage() {
+        
+    }
+}
