@@ -19,7 +19,7 @@ export class AWNotificationManagerService {
         });
     }
 
-    getNotifications(ob: Observer<any>, includeSeqNo: boolean) {
+    getNotifications(includeSeqNo: boolean) {
         return new Observable(ob => {
             this.AWNotificationManager.getNotifications(data => ob.next(data), err => ob.error(err), includeSeqNo);
         });
@@ -29,19 +29,19 @@ export class AWNotificationManagerService {
         this.AWNotificationManager.disablePushNotifications();
     }
 
-    getOpeningNotification(ob: Observer<any>, includeSeqNo: boolean) {
+    getOpeningNotification(includeSeqNo: boolean) {
         return new Observable(ob => {
             this.AWNotificationManager.getOpeningNotification(data => ob.next(data), err => ob.error(err), includeSeqNo);
         });
     }
 
-    removeNotification(seqNo: any, ob: Observer<any>) {
+    removeNotification(seqNo: any) {
         return new Observable(ob => {
             this.AWNotificationManager.removeNotification(seqNo, data => ob.next(data), err => ob.error(err));
         });
     }
 
-    openListener(ob: Observer<any>, includeSeqNo: boolean) {
+    openListener(includeSeqNo: boolean) {
         return new Observable(ob => {
             this.AWNotificationManager.openListener(data => ob.next(data), err => ob.error(err), includeSeqNo);
         });

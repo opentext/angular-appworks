@@ -18,7 +18,7 @@ export class AWLauncherService {
         });
     }
 
-    clearLanuchUrl(){
+    clearLaunchURL(){
         this.AWLauncher.clearLaunchURL();
     }
 }

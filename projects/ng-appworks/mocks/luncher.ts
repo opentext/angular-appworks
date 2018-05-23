@@ -1,0 +1,9 @@
+class MockLuncher {
+    getLaunchURL() {
+
+    }
+
+    clearLaunchURL() {
+
+    }
+}
